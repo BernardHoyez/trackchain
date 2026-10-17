@@ -1,0 +1,25 @@
+:root{--g:#1f6f5c;--bg:#f6f7f6;--fg:#1b1f1d;--bd:#d5dad7;--bt:#e7ebe8;color-scheme:light dark}
+@media(prefers-color-scheme:dark){:root{--bg:#1b1f1d;--fg:#e8ece9;--bd:#3a423e;--bt:#2b322f}}
+*{box-sizing:border-box}html,body{height:100%;margin:0}
+body{display:flex;flex-direction:column;background:var(--bg);color:var(--fg);font:15px system-ui,sans-serif;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+header{background:var(--g);color:#fff;padding:.4rem .8rem;display:flex;gap:.6rem;align-items:baseline}
+h1{font-size:1.1rem;margin:0}#ver{font-size:.75rem;opacity:.8}
+main{flex:1;min-height:0;display:flex;flex-direction:column}
+#map{flex:1 1 50%;min-height:230px}
+#panel{flex:1 1 50%;overflow:auto;padding:.4rem .8rem}
+@media(min-width:800px){main{flex-direction:row}#panel{flex:0 0 370px}#map{flex:1}}
+section{border-bottom:1px solid var(--bd);padding:.4rem 0 .6rem}
+h2{font-size:.95rem;margin:.3rem 0}
+button,.btn{font:inherit;color:var(--fg);background:var(--bt);border:1px solid var(--bd);border-radius:6px;padding:.4rem .7rem;cursor:pointer;display:inline-block}
+button.ok{background:var(--g);color:#fff;border-color:var(--g)}button:disabled{opacity:.5}
+select{font:inherit;max-width:100%;padding:.3rem;background:var(--bg);color:var(--fg);border:1px solid var(--bd);border-radius:6px}
+.row{display:flex;gap:.7rem;flex-wrap:wrap;align-items:flex-end;margin:.4rem 0}
+ul{list-style:none;padding:0;margin:.4rem 0}li{display:flex;gap:.4rem;align-items:center;padding:.15rem 0}
+li i{width:12px;height:12px;border-radius:50%;flex:none}li span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+li small,.muted{opacity:.75}li button{padding:.15rem .5rem}
+.warn{background:#fff3cd;color:#5c4400;border-radius:6px;padding:.4rem .6rem;margin:.3rem 0;font-size:.9rem}
+.arr{background:none;border:none;font-size:15px;line-height:15px;text-align:center}
+.arr span{display:block;text-shadow:0 0 2px #fff,0 0 2px #fff}
+#toast{position:fixed;left:50%;bottom:calc(1rem + env(safe-area-inset-bottom));transform:translateX(-50%);background:#222;color:#fff;padding:.6rem .9rem;border-radius:8px;z-index:2000;max-width:90vw}
+#toast button{margin-left:.6rem}
+dialog{max-width:min(90vw,420px);background:var(--bg);color:var(--fg);border:1px solid var(--bd);border-radius:10px}

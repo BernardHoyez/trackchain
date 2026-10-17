@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>trackchain</title>
+<link rel="manifest" href="manifest.json"><meta name="theme-color" content="#1f6f5c">
+<link rel="icon" href="icons/icon-192.png"><link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css"><link rel="stylesheet" href="style.css">
+</head><body>
+<header><h1>trackchain</h1><span id="ver"></span></header>
+<main>
+<div id="map"></div>
+<aside id="panel">
+<section><h2>1 · Traces (1 à 5)</h2>
+ <label class="btn">Ajouter GPX / KML / KMZ…<input type="file" id="file" accept=".gpx,.kml,.kmz" multiple hidden></label>
+ <ul id="list"></ul></section>
+<section><h2>2 · Enchaîner deux traces</h2>
+ <div class="row"><label>Première<br><select id="selA"></select></label><label>Suivante<br><select id="selB"></select></label></div>
+ <div class="row"><label><input type="radio" name="mode" value="lin" checked> Jonction linéaire</label>
+ <label><input type="radio" name="mode" value="route"> Routage IGN</label></div>
+ <div class="row" id="ropts" hidden>
+  <select id="res"><option value="bdtopo-osrm">OSRM</option><option value="bdtopo-pgr">pgRouting</option><option value="bdtopo-valhalla">Valhalla</option></select>
+  <select id="opt"><option value="shortest">Plus court</option><option value="fastest">Plus rapide</option></select></div>
+ <button id="bPrev" disabled>Aperçu de la jonction</button>
+ <p id="info" class="muted"></p>
+ <div class="row"><button id="bLin" hidden>Revenir en linéaire</button><button id="bOk" class="ok" hidden>Valider l’enchaînement</button></div>
+ <button id="bUndo" hidden>Annuler le dernier enchaînement</button></section>
+<section><h2>3 · Enregistrer</h2>
+ <p class="warn">⚠ Le sous-dossier <b>chain/</b> doit être créé une fois à la main (Téléchargements/chain).</p>
+ <select id="selS"></select>
+ <div class="row"><label><input type="checkbox" id="fGpx" checked> GPX</label><label><input type="checkbox" id="fKml"> KML</label></div>
+ <div class="row"><button id="bSave" class="ok">Enregistrer</button><button id="bDir" hidden>Choisir le dossier…</button></div>
+ <p id="saveInfo" class="muted"></p></section>
+</aside></main>
+<div id="toast" hidden></div>
+<dialog id="dlg"><p id="dlgTxt"></p><div class="row"><button id="dlgNo">Annuler</button><button id="dlgOk" class="ok">OK</button></div></dialog>
+<script src="vendor/leaflet/leaflet.js"></script><script src="vendor/jszip.min.js"></script><script src="app.js"></script>
+</body></html>
